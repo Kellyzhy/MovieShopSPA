@@ -1,0 +1,25 @@
+<!-- ngSubmit(angular diretive): submit infomration to this login method -->
+<form (ngSubmit)="login()" #loginForm="ngForm"> <!--template variable: #loginForm, whenevr have a form tag, Angular automatically creates and attaches an NgForm directive(additional functinality) to the <form> tag.-->
+    <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+    <div class="form-group">
+      <label for="lblemail">Email address</label>
+      <!-- Banana in the box: [(ngModel)], ngModel is useful for two-way binding
+        Two-way binding:The NgModel directive allows you to display a data property(userLogin.email & userLogin.password) and update that 
+        property when the user makes changes. Automatically watching the changes -->
+      <input type="email" class="form-control" name="userName" [(ngModel)]="userLogin.email" id="email"
+        aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="lblPassword">Password</label>
+      <input type="password" class="form-control" [(ngModel)]="userLogin.password" name="password" id="password"
+        placeholder="Password">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit" />
+  </form>
+
+  <!-- two textbox and one submit button -->
+  <!-- create form to send information to backend -->
+  <!-- two ways to create form in Angular:
+  *Template-driven forms are useful for adding a simple form to an app, small form such as login form/such as an email list signup form
+  Reactive forms are more robust: they're more scalable, reusable, and testable, useful complex/big form such as create a movie-->
